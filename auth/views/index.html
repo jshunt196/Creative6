@@ -7,28 +7,36 @@
 </head>
         
 <body> 
-    <div id="content">
-    <div ng-controller="myController">
-        <h2 id="welcomeText">Welcome. You are Logged In as
-            <%= username %>
-        </h2>
-        <a id="logoutLink" href="/logout">logout</a>
-        <a id="editLink" href="/user">Edit User</a>
-        <p>Place Your Code Here
-            <p>
+    <div ng-controller="myController" class="header">
+        <a id="welcomeText">Welcome, <%= username %>
+        </a>
+        <div class="header-right">
+        <a id="logoutLink" href="/logout">Logout</a>
+        <a id="editLink" href="/user">Account Settings</a>
+        </div>
     </div>
-    <hr>
-    <span id="indexMsg">
-        <%= msg %>
-    </span>
+    <div style="padding:40px">
+    <div id="content">
+        <p>Use the settings tab to add your favorite celebrity, animal, and food.</p>
     <hr>
     <span id="colorText">
-    Color
-        <%= color %>
+    Your Current Favorites:
+       <figure>
+          <img src="<%= celebrity %>">
+          <figcaption><%= celebName %></figcaption>
+        </figure>
+        <figure>
+          <img src="<%= animal %>">
+          <figcaption><%= animalName %></figcaption>
+        </figure>
+        <figure>
+          <img src="<%= food %>">
+          <figcaption><%= foodName %></figcaption>
+        </figure>
       </span>
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="/javascripts/my_app.js"></script>
     </div>
+    </div>
 </body>
-      
 </html>

@@ -7,12 +7,18 @@ console.log("before / Route");
 router.get('/', function(req, res){
     console.log("/ Route");
 //    console.log(req);
-    console.log(req.session);
+    console.log('Meh celebrity: ' + req.session.celebrity);
     if (req.session.user) {
       console.log("/ Route if user");
       res.render('index', {username: req.session.username,
                            msg:req.session.msg,
-                           color:req.session.color});
+                           celebName:req.session.celebName,
+                           celebrity:req.session.celebrity,
+                           animalName:req.session.animalName,
+                           animal:req.session.animal,
+                           foodName:req.session.foodName,
+                           food:req.session.food
+      });
     } else {
       console.log("/ Route else user");
       req.session.msg = 'Access denied!';
@@ -23,6 +29,17 @@ router.get('/user', function(req, res){
     console.log("/user Route");
     if (req.session.user) {
       res.render('user', {msg:req.session.msg});
+    } else {
+      req.session.msg = 'Access denied!';
+      res.redirect('/login');
+    }
+});
+router.get('/addnew', function(req, res){
+    console.log("/addnew Route");
+    if (req.session.user) {
+      console.log('yoyoyo');
+      res.render('addnew.html', {msg:req.session.msg});
+      console.log('after');
     } else {
       req.session.msg = 'Access denied!';
       res.redirect('/login');

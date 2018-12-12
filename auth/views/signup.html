@@ -6,7 +6,13 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 </head>
         
-<body>  
+<body>
+    <div ng-controller="myController" class="header">
+        <a id="welcomeText">Sign Up</a>
+    </div>
+    
+    <div style="padding:40px">
+    <div id="content">
     <div class="form-container">
         <p class="form-header">Sign Up</p>
         <form method="POST" action="/signup">
@@ -19,10 +25,9 @@
             <input type="submit" id="register" value="Register">
         </form>
     </div>
-    <hr>
-    <span id="signupMsg">
-    <%= msg %>
     </span>
+    </div>
+    </div>
 </body> 
 
 </html>

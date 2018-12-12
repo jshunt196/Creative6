@@ -6,7 +6,17 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
 </head>
         
-<body>  
+<body>
+    <div ng-controller="myController" class="header">
+        <a id="welcomeText">Settings</a>
+        <div class="header-right">
+        <a id="logoutLink" href="/logout">Logout</a>
+        <a id="homeLink" href="/">Home</a>
+        </div>
+    </div>
+    
+    <div style="padding:40px">
+    <div id="content">
     <div class="form-container" ng-controller="myController">
         <p id="sectionTitle" class="form-header">User Profile</p>
         <form method="POST" action="/user/update">
@@ -14,21 +24,28 @@
             <input type="text" id="username" name="username" ng-model="user.username" disabled><br>
             <label>Email:</label>
             <input type="email" id="email" name="email" ng-model="user.email"><br>          
-            <label>Favorite Color:</label>
-            <input type="text" id="color" name="color" ng-model="user.color"><br>   
+            <label>Favorite Celebrity Name:</label>
+            <input type="text" id="celebName" name="celebName" ng-model="user.celebName"><br>
+            <label>Favorite Celebrity Image URL:</label>
+            <input type="text" id="celebrity" name="celebrity" ng-model="user.celebrity"><br> 
+            <label>Favorite Animal Name:</label>
+            <input type="text" id="animalName" name="animalName" ng-model="user.animalName"><br> 
+            <label>Favorite Animal Image URL:</label>
+            <input type="text" id="animal" name="animal" ng-model="user.animal"><br>
+            <label>Favorite Food Name:</label>
+            <input type="text" id="foodName" name="foodName" ng-model="user.foodName"><br>
+            <label>Favorite Food Image URL:</label>
+            <input type="text" id="food" name="food" ng-model="user.food"><br> 
             <input type="submit" id="save" value="Save">
         </form>
     </div>
     <form method="POST" action="/user/delete">
         <input type="submit" id="delete" value="Delete User">
     </form>
-    <hr>
-    <span id="userMsg">
-    <%= msg %>
-    </span>
     <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="/javascripts/my_app.js"></script>
-    <a id="homeLink" href="/">Home</a>
+    </div>
+    </div>
 </body>
 
 </html>

@@ -3,7 +3,12 @@ var mongoose = require('mongoose'),
 var UserSchema = new Schema({
     username: { type: String, unique: true },
     email: String,
-    color: String,
+    celebName: String,
+    celebrity: String,
+    animalName: String,
+    animal: String,
+    foodName: String,
+    food: String,
     hashed_password: String
 });
 mongoose.model('User', UserSchema);

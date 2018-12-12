@@ -40,7 +40,12 @@ exports.login = function(req, res){
         req.session.user = user.id;
         req.session.username = user.username;
         req.session.msg = 'Authenticated as ' + user.username;
-        req.session.color = user.color;
+        req.session.celebrity = user.celebrity;
+        req.session.celebName = user.celebName;
+        req.session.animal = user.animal;
+        req.session.animalName = user.animalName;
+        req.session.food = user.food;
+        req.session.foodName = user.foodName;
         res.redirect('/');
       });
     }else{
@@ -68,13 +73,23 @@ exports.updateUser = function(req, res){
   User.findOne({ _id: req.session.user })
   .exec(function(err, user) {
     user.set('email', req.body.email);
-    user.set('color', req.body.color);
+    user.set('celebName', req.body.celebName);
+    user.set('celebrity', req.body.celebrity);
+    user.set('animalName', req.body.animalName);
+    user.set('animal', req.body.animal);
+    user.set('food', req.body.food);
+    user.set('foodName', req.body.foodName);
     user.save(function(err) {
       if (err){
         res.sessor.error = err;
       } else {
         req.session.msg = 'User Updated.';
-        req.session.color = req.body.color;
+        req.session.celebName = req.body.celebName;
+        req.session.celebrity = req.body.celebrity;
+        req.session.animalName = req.body.animalName;
+        req.session.animal = req.body.animal;
+        req.session.foodName = req.body.foodName;
+        req.session.food = req.body.food;
       }
       res.redirect('/user');
     });
